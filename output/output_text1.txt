@@ -1,0 +1,8 @@
+num	prefix	a	b	c	
+0 :		1	0	0	
+1 :	a	1	2	0	
+2 :	ab	1	0	3	
+3 :	abc	4	0	0	
+4 :	abca	1	5	0	
+5 :	abcab	1	0	6	
+6 :	abcabc	4	0	0	
