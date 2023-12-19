@@ -1,14 +1,18 @@
-#include "reader.h"
-#include "fsm.h"
-#include <string>
+#include "suffixautomaton.h"
+
 
 int main(){
-    Reader<std::string> reader1;
-    std::vector<std::string> text1 = reader1.ReadFile("samples/text1.txt");
-    std::vector<std::string> pattern1 = reader1.ReadFile("samples/pattern1.txt");
-    Fsm<std::string> fsm1(pattern1);
-    reader1.Write("text1.txt", fsm1.GetAlphabet(), fsm1.GetListPattern(), fsm1.GetTable());
-    fsm1.FindSubstr(text1);
-    std::cout << "Count of intersecting substrings: " << fsm1.GetCountSubstr() << '\n';
+    std::cout << "first sample:\n";
+    std::vector<char> s = {'a', 'b', 'c', 'b', 'c'};
+    std::vector<char> w = {'a', 'b', 'c'};
+    SuffixAutomaton<char> suffAuto(s);
+    suffAuto.IsSubstr(w);
+
+    std::cout << "second sample:\n";
+    std::vector<int> s1 = {1, 2, 3, 1, 2, 4, 1, 3, 1, 2};
+    std::vector<int> w1 = {1, 2};
+    SuffixAutomaton<int> suffAuto1(s1);
+    suffAuto1.IsSubstr(w1);
+
     return 0;
 }
